@@ -3,22 +3,22 @@ const app = express();
 
 // GET Method
 app.get('/',(req, res) => {
-  res.status(200).send({ status: { type: 'ok', message: 'request /GET' }, data: null });
+    res.status(200).send({ status: { type: 'ok', message: 'request /GET' }, data: null });
 });
 
 // POST Method
 app.post('/',(req, res) => {
-  res.status(200).send({ status: { type: 'ok', message: 'request /POST' }, data: null });
+    res.status(200).send({ status: { type: 'ok', message: 'request /POST' }, data: null });
 });
 
 // PUT Method
 app.put('/',(req, res) => {
-  res.status(200).send({ status: { type: 'ok', message: 'request /PUT' }, data: null });
+    res.status(200).send({ status: { type: 'ok', message: 'request /PUT' }, data: null });
 });
 
 // DELETE Method
 app.delete('/',(req, res) => {
-  res.status(200).send({ status: { type: 'ok', message: 'request /DELETE' }, data: null });
+    res.status(200).send({ status: { type: 'ok', message: 'request /DELETE' }, data: null });
 });
 
 /**
