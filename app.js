@@ -24,15 +24,15 @@ app.delete('/',(req, res) => {
 /**
  * Unsupported Methods
  */
-router.get('*', function (req, res){
+app.get('*', function (req, res){
     res.status(404).send({ status: { type: 'error', message: 'Invalid Request.' }, data: null });
 });
 
-router.post('*', function (req, res){
+app.post('*', function (req, res){
     res.status(404).send({ status: { type: 'error', message: 'Invalid Request.' }, data: null });
 });
 
-router.delete('*', function (req, res){
+app.delete('*', function (req, res){
     res.status(404).send({ status: { type: 'error', message: 'Invalid Request.' }, data: null });
 });
 
