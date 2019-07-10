@@ -1,0 +1,19 @@
+{
+  "accounts": [
+    {
+      "account": "accountTW@kkbox.com",
+      "password": "passwordTW",
+      "territory": "TW"
+    },
+    {
+      "account": "accountJP@kkbox.com",
+      "password": "passwordJP",
+      "territory": "JP"
+    },
+    {
+      "account": "accountHK@kkbox.com",
+      "password": "passwordHK",
+      "territory": "HK"
+    }
+  ]
+}
