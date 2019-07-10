@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // lowdb
 const low = require('lowdb');
@@ -7,15 +10,38 @@ const FileSync = require('lowdb/adapters/FileSync');
 const adapter = new FileSync('db.json');
 const db = low(adapter);
 
-// GET Method
-app.get('/:territory',(req, res) => {
-	const territory = req.params.territory;
-	const account = db.get('accounts').find({'territory': territory}).value();
+// 取得所有帳號資訊
+app.get('/',(req, res) => {
+    const territory = req.params.territory;
+    const account = db.get('accounts').value();
 
-	if (account === undefined) {
-        res.status(500).send({ status: { type: 'error', message: 'Nonexistent.' }, data: null });
+    res.status(200).send({ status: { type: 'ok', message: '' }, data: account });
+});
+
+// 借用帳號
+app.post('/', function (req, res) {
+    let filter = req.body || { };
+    filter.inuse = false;
+
+    let avaliable = db.get('accounts').find(filter).size().value();
+    if (avaliable < 1) {
+        res.status(500).send({ status: { type: 'error', message: 'No avaliable account in database.' }, data: null });
     } else {
-    	res.status(200).send({ status: { type: 'ok', message: '' }, data: account });
+        const account = db.get('accounts').find(filter).assign({ 'inuse': true }).write();
+        res.status(200).send({ status: { type: 'ok', message: '' }, data: account });
+    }
+});
+
+// 歸還帳號
+app.put('/:uid', function (req, res) {
+    const uid = req.params.uid;
+
+    let exist = db.get('accounts').find({ 'account': uid }).value();
+    if (!exist) {
+        res.status(500).send({ status: { type: 'error', message: uid + ' is not exist in database.' }, data: null });
+    } else {
+        const account = db.get('accounts').find({ 'account': uid }).assign({ 'inuse': false }).write();
+        res.status(200).send({ status: { type: 'ok', message: '' }, data: account });
     }
 });
 

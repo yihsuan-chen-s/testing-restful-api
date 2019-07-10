@@ -1,19 +1,39 @@
 {
   "accounts": [
     {
+      "inuse": false,
       "account": "accountTW@kkbox.com",
       "password": "passwordTW",
-      "territory": "TW"
+      "territory": "TW",
+      "type": "premium"
     },
     {
+      "inuse": false,
       "account": "accountJP@kkbox.com",
       "password": "passwordJP",
-      "territory": "JP"
+      "territory": "JP",
+      "type": "premium"
     },
     {
+      "inuse": false,
       "account": "accountHK@kkbox.com",
       "password": "passwordHK",
-      "territory": "HK"
+      "territory": "HK",
+      "type": "premium"
+    },
+    {
+      "inuse": false,
+      "account": "accountSG@kkbox.com",
+      "password": "passwordSG",
+      "territory": "SG",
+      "type": "premium"
+    },
+    {
+      "inuse": false,
+      "account": "accountMY@kkbox.com",
+      "password": "passwordMY",
+      "territory": "MY",
+      "type": "expired"
     }
   ]
 }
