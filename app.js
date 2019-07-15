@@ -5,10 +5,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // lowdb
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
-const adapter = new FileSync('db.json');
-const db = low(adapter);
+const db = require('./db');
 
 // 取得所有帳號資訊
 app.get('/',(req, res) => {
