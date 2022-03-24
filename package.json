@@ -23,6 +23,6 @@
   },
   "devDependencies": {
     "supertest": "^4.0.2",
-    "minimist": ">=0.2.1"
+    "minimist": ">=1.2.6"
   }
 }
